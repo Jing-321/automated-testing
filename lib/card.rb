@@ -5,9 +5,18 @@ class Card
   attr_reader :value, :suit
 
   def initialize(value, suit)
-    @value = value
-    @suit = suit
-    
+
+    if (1..13).include? value
+      @value = value
+    else
+      raise ArgumentError
+    end
+
+    if [:hearts, :spades, :clubs, :diamonds].include? suit
+      @suit = suit
+    else
+      raise ArgumentError
+    end
 
   end
 
