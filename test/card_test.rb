@@ -26,6 +26,19 @@ describe Card do
     it "to_s returns a readable String value logically for values 2-10" do
       # Test to ensure that to_s works for cards values 2-10
       # for example:  "2 of diamonds"
+      #
+      [:hearts, :spades, :clubs, :diamonds].each do |suit|
+        (2..10).each do |value|
+          card = Card.new(value, suit)
+          expect(card.to_s).must_be_instance_of String
+        end
+      end
+
+
+
+        card_1 = Card.new(3, :clubs)
+        expect(card_1.to_s).must_equal "3 of clubs"
+
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
@@ -34,12 +47,19 @@ describe Card do
       # The current implementation of to_s does not address this feature
       # Write the test, see it fail, then modify to_s to make it pass!
       # (Consider writing a helper method!)
+
       #
-      # For reference:
-      #  1: Ace
-      #  11: Jack
-      #  12: Queen
-      #  13: King
+      card_1 = Card.new(1, :clubs)
+      expect(card_1.to_s).must_equal "Ace of clubs"
+
+      card_1 = Card.new(11, :hearts)
+      expect(card_1.to_s).must_equal "Jack of hearts"
+
+      card_1 = Card.new(12, :spades)
+      expect(card_1.to_s).must_equal "Queen of spades"
+
+      card_1 = Card.new(13, :diamonds)
+      expect(card_1.to_s).must_equal "King of diamonds"
     end
   end
 

@@ -21,7 +21,22 @@ class Card
   end
 
   def to_s
-    return "#{value} of #{suit.to_s}"
+
+    if [1, 11, 12, 13].include? @value
+      case @value
+      when 1
+        return "Ace of #{@suit.to_s}"
+      when 11
+        return "Jack of #{@suit.to_s}"
+      when 12
+        return "Queen of #{@suit.to_s}"
+      when 13
+        return "King of #{@suit.to_s}"
+      end
+    else
+      return "#{value} of #{@suit.to_s}"
+    end
+
   end
 
 end
