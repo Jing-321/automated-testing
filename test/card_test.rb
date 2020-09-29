@@ -67,11 +67,26 @@ describe Card do
 
     it "Can retrieve the value of the card using a `.value`." do
       # ensure that `.value works as expected`
+      card_1 = Card.new(12, :spades)
+      expect(card_1.value).must_equal 12
+
+      card_1 = Card.new(3, :clubs)
+      expect(card_1.value).must_equal 3
     end
 
     it "Can retrieve the value of the card using a `.suit`." do
       # ensure that `.suit works as expected returning the symbol of the suit`
+      card_1 = Card.new(12, :spades)
+      expect(card_1.suit).must_equal :spades
 
+      card_1 = Card.new(13, :diamonds)
+      expect(card_1.suit).must_equal :diamonds
+
+      card_1 = Card.new(11, :hearts)
+      expect(card_1.suit).must_equal :hearts
+
+      card_1 = Card.new(3, :clubs)
+      expect(card_1.suit).must_equal :clubs
     end
   end
 
